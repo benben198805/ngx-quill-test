@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Hi</h1>
+<div mat-dialog-content>
+    <p>Test</p>
+    <div><input type="text" [(ngModel)]="textString" /><button (click)="addText()">Add Text</button></div>
+    <div>
+        <button (click)="addLine()">Line</button>
+
+        <button (click)="addFigure('triangle')">Triangle</button>
+        <button (click)="addFigure('circle')">Circle</button>
+        <button (click)="addFigure('square')">Square</button>
+        <button (click)="addFigure('rectangle')">Rectangle</button>
+
+        <button (click)="ExportToContent('json')">Generate Json</button>
+        <button (click)="ExportToContent('svg')">Generate SVG</button>
+    </div>
+
+    <div>
+        <canvas id="fabricSurface" style="border: 1px solid #cccccc;"></canvas>
+    </div>
+
+    <div>
+        <p>OutputContent</p>
+        <code>{{OutputContent}}</code>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="close()">Close</button>
+    <button mat-button cdkFocusInitial (click)="submit()">Ok</button>
+</div>
