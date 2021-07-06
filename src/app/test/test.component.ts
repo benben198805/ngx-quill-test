@@ -40,10 +40,10 @@ export class TestComponent {
         this.editor.insertEmbed(range.index, 'image', 'assets/test.svg', 'user')
         var container = document.getElementById("tempSvg");
         container.innerHTML = "<svg>" + res.data + "</svg>";
-        console.log(1)
+
+        // 需要服务器端存储svg code为SVG文件；再插入（quill仅允许几种类型的type，不包含html dom）
         this.editor.insertEmbed(range.index, 'text', res.data, 'user');
-        console.log(2)
-      }, error => console.log(error));
+      }, cancel => console.log(cancel));
     });
   }
 
