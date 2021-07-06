@@ -1,33 +1,16 @@
-# ngx-quill-example
+# ngx-quill-test
 
-The demo app for the usage of the [ngx-quill](https://github.com/KillerCodeMonkey/ngx-quill) module.
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
+## origin
+clone from ngx-quill-example (https://github.com/KillerCodeMonkey/ngx-quill-example)
 
-[Live Demo](https://killercodemonkey.github.io/ngx-quill-example/)
 
-## Donate/Support
+## test for what
 
-If you like my work, feel free to support it. Donations to the project are always welcomed :)
+* check list
+* resize win
+* add button show modal
+* draw line/text to image with fabric
 
-PayPal: [PayPal.Me/bengtler](https://paypal.me/bengtler)
-
-<a href="https://www.buymeacoffee.com/bengtler" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-
-BTC Wallet Address:
-`3QVyr2tpRLBCw1kBQ59sTDraV6DTswq8Li`
-
-ETH Wallet Address:
-`0x394d44f3b6e3a4f7b4d44991e7654b0cab4af68f`
-
-LTC Wallet Address:
-`MFif769WSZ1g7ReAzzDE7TJVqtkFpmoTyT`
-
-## Clone, Install and Run
-
-1. Clone the project then cd into project directory.
-2. Install dependencies with `npm install`.
-3. Run the development server with `ng serve`.
-
-## View Examples
-
-Navigate in your browser to http://localhost:4200 to view the examples. Each example is implemented as an Angular component.
+metions:
+After fabric edit image, it can export json or svg code of image.
+As quill can not insert svg code, so it will need a backend server save svg code to svg file and insert svg url to quill.
