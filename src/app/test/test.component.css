@@ -1,0 +1,9 @@
+.big-parent {
+    width: 500px;
+    height: 500px;
+}
+
+.small-parent {
+    width: 200px;
+    height: 200px;
+}

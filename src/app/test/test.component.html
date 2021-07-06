@@ -1,0 +1,52 @@
+<h3 id="toolbar-bottom">Test Custom Toolbar</h3>
+<p>
+    <button (click)="toggleReadOnly()">toggle readOnly</button>
+    <span> isReadOnly: {{isReadOnly}}</span>
+</p>
+<p>
+    <button (click)="disable()">disable</button>
+    <button (click)="enable()">enable</button>
+</p>
+<div id="tempSvg"></div>
+<div id="parent" class="big-parent">
+    <quill-editor customToolbarPosition="bottom" [(ngModel)]="editorModel" format="object" [modules]="modules" [readOnly]="isReadOnly" (onEditorCreated)="createdQuill($event)">
+        <div quill-editor-toolbar>
+            <span id="smaller"></span>
+            <span id="bigger"></span>
+            <span id="image-modal"></span>
+            <span class="ql-formats">
+        <select class="ql-font">
+          <option value="aref">Aref Ruqaa</option>
+          <option value="mirza">Mirza</option>
+          <option selected value="roboto">Roboto</option>
+        </select>
+        <select class="ql-align" [title]="'Aligment'">
+          <option selected></option>
+          <option value="center"></option>
+          <option value="right"></option>
+          <option value="justify"></option>
+        </select>
+        <select class="ql-align" [title]="'Aligment2'">
+          <option selected></option>
+          <option value="center"></option>
+          <option value="right"></option>
+          <option value="justify"></option>
+        </select>
+
+        <select class="ql-color" [title]="'Color'">
+        </select>
+
+        <select class="ql-background" [title]="'BackgroundColor'">
+        </select>
+      </span>
+            <span class="ql-formats">
+        <div id="counter"></div>
+      </span>
+            <span class="ql-vedio"></span>
+
+            <button class="ql-list" value="ordered"></button>
+            <button class="ql-list" value="bullet"></button>
+            <button class="ql-list" value="check"></button>
+        </div>
+    </quill-editor>
+</div>
