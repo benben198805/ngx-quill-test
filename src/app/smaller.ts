@@ -2,7 +2,6 @@ import 'quill'
 
 export interface Config {
   container: string
-  unit: 'word' | 'char'
 }
 
 export interface QuillInstance {
@@ -23,9 +22,6 @@ export default class Smaller {
     container.innerHTML = "<span> Sm </span>"
 
     container.addEventListener('click',  () => {
-      console.log(this.quill);
-      console.log(this.options);
-      console.log(parent);
       parent.className = 'small-parent';
     });
   }
