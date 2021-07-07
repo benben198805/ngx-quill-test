@@ -3,6 +3,11 @@
 ## origin
 clone from ngx-quill-example (https://github.com/KillerCodeMonkey/ngx-quill-example)
 
+## tech stack
+* angular 12
+* quill
+* ngx-quill
+* fabric
 
 ## test for what
 
