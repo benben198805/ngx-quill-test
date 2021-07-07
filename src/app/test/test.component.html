@@ -1,15 +1,22 @@
 <h3 id="toolbar-bottom">Test Custom Toolbar</h3>
-<p>
+<div>
+    test readonly:
     <button (click)="toggleReadOnly()">toggle readOnly</button>
     <span> isReadOnly: {{isReadOnly}}</span>
-</p>
-<p>
+    | test disable:
     <button (click)="disable()">disable</button>
     <button (click)="enable()">enable</button>
-</p>
+</div>
+<div>
+    html:
+    <div class="html-code">
+        {{html}}
+    </div>
+</div>
 <div id="tempSvg"></div>
 <div id="parent" class="big-parent">
-    <quill-editor customToolbarPosition="bottom" [(ngModel)]="editorModel" format="object" [modules]="modules" [readOnly]="isReadOnly" (onEditorCreated)="createdQuill($event)">
+    <quill-editor customToolbarPosition="bottom" [(ngModel)]="editorModel" format="object" [modules]="modules"
+                  [readOnly]="isReadOnly" (onEditorCreated)="createdQuill($event)">
         <div quill-editor-toolbar>
             <span id="smaller"></span>
             <span id="bigger"></span>
