@@ -1,6 +1,7 @@
 import {Component, NgZone} from '@angular/core'
 import {MatDialog} from '@angular/material/dialog'
 import {TestModalComponent} from '../test-modal/test-modal.component'
+import {get, replace, startsWith, trim} from 'lodash'
 
 export interface DialogData {
     animal: string;
@@ -17,6 +18,12 @@ export class TestComponent {
     editor
     isReadOnly = false
     html = null
+    tips = [
+        ['Hello World.'],
+        ['How are you.'],
+        ['This is good.'],
+        ['Good news.']
+    ]
 
     constructor(public dialog: MatDialog, private ngZone: NgZone) {
     }
@@ -24,9 +31,45 @@ export class TestComponent {
     createdQuill(editor) {
         this.editor = editor
 
-        this.editor.on('text-change', () => {
+        this.editor.on('text-change', (delta, oldDelta, source) => {
             this.html = this.editor.root.innerHTML
+            this.autoCompleteTips(source, delta)
         })
+    }
+
+    private autoCompleteTips(source, delta) {
+        if (source === 'api' || get(delta, 'ops.[1].insert') !== ' ') {
+            return
+        }
+
+        const selection = this.editor.getSelection()
+        const textBefore = this.editor.getText(0, selection.index)
+        const regExp = /( \w+ )$/g
+        const regExpResult = regExp.exec(textBefore)
+
+        if (regExpResult) {
+            const insertText = this.getInsertText(regExpResult)
+
+            if (!insertText) {
+                return
+            }
+
+            this.editor.insertText(-1, insertText, [], 'api')
+            setTimeout(() => {
+                this.editor.setSelection(selection.index, insertText.length, 'api')
+            }, 1)
+        }
+    }
+
+    private getInsertText(result: RegExpExecArray) {
+        let insertText = ''
+        const trimmedResult = trim(result[0])
+        for (const tip of this.tips) {
+            if (startsWith(tip, trimmedResult)) {
+                insertText = replace(tip, trimmedResult, '')
+            }
+        }
+        return insertText
     }
 
     disable() {

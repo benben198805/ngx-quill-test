@@ -8,6 +8,7 @@ clone from ngx-quill-example (https://github.com/KillerCodeMonkey/ngx-quill-exam
 * quill
 * ngx-quill
 * fabric
+* auto complete tips
 
 ## test for what
 
